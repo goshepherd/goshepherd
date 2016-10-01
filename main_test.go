@@ -1,11 +1,9 @@
 package main
 
 import (
-	"testing"
 	"net/http"
+	"testing"
 )
-
-
 
 func TestBaseURLNotFound(t *testing.T) {
 	e := serve().Tester(t)
@@ -13,7 +11,7 @@ func TestBaseURLNotFound(t *testing.T) {
 	e.GET("/").Expect().Status(http.StatusNotFound)
 }
 
-func TestPostEmpty(t *testing.T) {
+func TestUnauthorized(t *testing.T) {
 	e := serve().Tester(t)
 
 	e.GET("/api/posts").Expect().Status(http.StatusUnauthorized)
