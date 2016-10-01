@@ -2,7 +2,7 @@ package folder
 
 import (
 	"time"
-	"github.com/youkyll/goshepherd/app/model"
+	"github.com/goshepherd/goshepherd/app/model"
 	"database/sql"
 	"log"
 )

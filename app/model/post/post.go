@@ -1,7 +1,7 @@
 package post
 
 import(
-	"github.com/youkyll/goshepherd/app/model"
+	"github.com/goshepherd/goshepherd/app/model"
 	"time"
 	"database/sql"
 	"log"

@@ -4,12 +4,12 @@ import (
 	"github.com/kataras/iris"
 	"github.com/dgrijalva/jwt-go"
 	jwtM "github.com/iris-contrib/middleware/jwt"
-	postM "github.com/youkyll/goshepherd/app/model/post"
-	folderM "github.com/youkyll/goshepherd/app/model/folder"
+	postM "github.com/goshepherd/goshepherd/app/model/post"
+	folderM "github.com/goshepherd/goshepherd/app/model/folder"
 	"encoding/base64"
 )
 
-func Routes() {
+func Routes(i *iris.Framework) *iris.Framework {
 
 	myJwtM := jwtM.New(jwtM.Config{
 		ValidationKeyGetter: func(token *jwt.Token) (interface{}, error) {
@@ -22,7 +22,7 @@ func Routes() {
 	})
 
 
-	api := iris.Party("/api")
+	api := i.Party("/api")
 	{
 
 		//middleware
@@ -40,6 +40,8 @@ func Routes() {
 		api.Post("/folders", markCreate)
 		api.Delete("/folders/:folder_id", markDelete)
 	}
+
+	return i
 }
 
 func list(c *iris.Context) {

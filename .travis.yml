@@ -1,0 +1,13 @@
+language: go
+go:
+  - tip
+env:
+  - "PATH=/home/travis/gopath/bin:$PATH"
+install:
+  - go get github.com/Masterminds/glide
+  - go install github.com/Masterminds/glide
+  - export GO15VENDOREXPERIMENT=1
+  - export PATH=$HOME/gopath/bin:$PATH
+  - glide install
+script:
+  - go test -v
